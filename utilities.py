@@ -1,4 +1,6 @@
 import sys, time, os
+from yachalk import chalk
+
 # message = "Computer: Hello world, nice to meet you. \n\
 # Me : Nice to meet you too. \n\
 # Computer: Goodbye."
@@ -21,9 +23,10 @@ def string_input(prompt):
 
 def render_stats():
     os.system('clear')
-    size = os.get_terminal_size().columns-22
+    size = os.get_terminal_size().columns-23
     spaces = " " * size
-    print(f'{spaces}┌────────────────────┐\n{spaces}│Total Budget: xxx   │\n{spaces}│                    │\n{spaces}│Health Care: xxx    │\n{spaces}│Social Services: xxx│\n{spaces}│Defence: xxx        │\n{spaces}│Education: xxx      │\n{spaces}│Discretionary: xxx  │\n{spaces}├─────────────────── │\n{spaces}│Satisfaction: xx    │\n{spaces}│Stablity: xx        │\n{spaces}│Economy: xx         │\n{spaces}└────────────────────┘')
+    print(f'{spaces}┌─────────────────────┐\n{spaces}│Total Budget: xxx    │\n{spaces}│                     │\n{spaces}│Health Care: xxx     │\n{spaces}│Social Services: xxx │\n{spaces}│Defence: xxx         │\n{spaces}│Education: xxx       │\n{spaces}│Discretionary: xxx   │\n{spaces}├──────────────────── │\n{spaces}│Satisfaction: xx     │\n{spaces}│Stablity: xx         │\n{spaces}│Economy: xx          │\n{spaces}└─────────────────────┘')
 
 os.system ("clear") #clear
 render_stats()
+print(chalk.blue("Hello world!"))
