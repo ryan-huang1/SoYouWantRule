@@ -17,14 +17,27 @@ def typewriter(message) :
     print(char_per_line)
 
     writen_per_line = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for char in message:
-        sys.stdout.write(char)
-        sys.stdout.flush()
+    writen = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
 
-        if char !="\n":
-            time.sleep (0.07)
-        else:
-            time.sleep (1)
+    for i in range(13):
+        for j in range(char_per_line[i]):
+            writen_per_line[i] += 1
+            sys.stdout.write(message[i][j])
+            writen[i] += message[i][j]
+            sys.stdout.flush()
+            time.sleep(0.1)
+            print(writen)
+        print()
+        time.sleep(.8)
+    
+    # for char in message:
+    #     sys.stdout.write(char)
+    #     sys.stdout.flush()
+
+    #     if char !="\n":
+    #         time.sleep (0.07)
+    #     else:
+    #         time.sleep (1)
 
 def render_stats(prompt):
 
