@@ -6,20 +6,25 @@ from yachalk import chalk
 # Computer: Goodbye."
 
 def typewriter(message) :
+    char_per_line = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    for i in range(13):
+        try:
+            char_per_line[i] = len(message[i])
+        except:
+            char_per_line[i] = 0
+
+    print(char_per_line)
+
+    writen_per_line = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for char in message:
-        sys.stdout. write (char)
+        sys.stdout.write(char)
         sys.stdout.flush()
 
         if char !="\n":
             time.sleep (0.07)
         else:
             time.sleep (1)
-
-def string_input(prompt):
-    typewriter(prompt)
-    user_input = input()
-    message = user_input[0].upper() + user_input[1:]
-    return message
 
 def render_stats(prompt):
 
@@ -37,6 +42,12 @@ def render_stats(prompt):
         except IndexError:
             print(spaces + stats_table[i])
 
+def string_input(prompt):
+    typewriter(prompt)
+    user_input = input()
+    message = user_input[0].upper() + user_input[1:]
+    return message
+
 os.system ("clear") #clear
-render_stats(["hello", "hello", "hello"])
+typewriter(["hello", "hello", "hello"])
 print(chalk.blue("Hello world!"))
