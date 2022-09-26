@@ -13,6 +13,8 @@ from rich.panel import Panel
 from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn
 from rich.syntax import Syntax
 from rich.table import Table
+from rich.prompt import Prompt
+from rich.text import Text
 
 console = Console()
 
@@ -124,6 +126,15 @@ def ratio_resolve(total: int, edges: List[Edge]) -> List[int]:
     syntax = Syntax(code, "python", line_numbers=True)
     return syntax
 
+def make_prompt() -> Prompt:
+    name = Prompt.ask("Enter your name", choices=["Paul", "Jessica", "Duncan"], default="Paul")
+    return name
+
+def make_on_click() -> Text:
+    text = Text("hello world")
+    text.on(click=layout["box2"].update(Panel(make_syntax(), border_style="blue")))
+    return text
+
 
 job_progress = Progress(
     "{task.description}",
@@ -153,7 +164,7 @@ progress_table.add_row(
 
 layout = make_layout()
 layout["header"].update(Header())
-layout["body"].update(make_sponsor_message())
+layout["body"].update(make_on_click())
 layout["box2"].update(Panel(make_syntax(), border_style="green"))
 layout["box1"].update(Panel(layout.tree, border_style="red"))
 layout["footer"].update(progress_table)
