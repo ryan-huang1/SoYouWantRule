@@ -9,7 +9,7 @@ def writer(message) :
         sys.stdout.flush()
 
         if char !="\n":
-            time.sleep (0.02)
+            time.sleep (0.003)
         else:
             time.sleep (1)
 
